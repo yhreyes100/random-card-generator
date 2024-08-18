@@ -1,10 +1,3 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 function src(typeofCard) {
   let src = "";
   switch (typeofCard) {
@@ -58,7 +51,7 @@ function createBody(cardNumber, typeofCard) {
       "6": [true, false, true, true, false, true, true, false, true],
       "7": [true, false, true, true, true, true, true, false, true],
       "8": [true, true, true, true, false, true, true, true, true],
-      "9": [true, true, true, true, true, true, true, true, true]
+      "9": [true, true, true, true, true, true, true, true, true],
     };
     let pos = 0;
     for (let i = 0; i < 3; i++) {
@@ -90,16 +83,17 @@ function createBody(cardNumber, typeofCard) {
   return result;
 }
 function cardCreation(cardNumber = 1, typeofCard = 1) {
-  document.getElementsByClassName("card")[0].innerHTML +=
+  let result =
     "<div class='cardhead'>" +
     createHeadFooter(cardNumber, typeofCard) +
-    "</div>";
-  document.getElementsByClassName("card")[0].innerHTML +=
-    "<div class ='cardbody'>" + createBody(cardNumber, typeofCard) + "</div>";
-  document.getElementsByClassName("card")[0].innerHTML +=
+    "</div>" +
+    "<div class ='cardbody'>" +
+    createBody(cardNumber, typeofCard) +
+    "</div>" +
     "<div class='cardfooter rotate'>" +
     createHeadFooter(cardNumber, typeofCard) +
     "</div>";
+  return result;
 }
 function randomCards() {
   return Math.floor(Math.random() * 9) + 1;
@@ -107,8 +101,9 @@ function randomCards() {
 function randomTypes() {
   return Math.floor(Math.random() * 4) + 1;
 }
-window.onload = function() {
-  cardCreation(randomCards(), randomTypes());
-  //  cardCreation(2, 4);
-  console.log("Hello Rigo from the console!");
-};
+
+function newCard() {
+  postMessage(cardCreation(randomCards, randomTypes));
+  setTimeout("newCard()", 700);
+}
+newCard();
