@@ -19,21 +19,23 @@ function src(typeofCard) {
   }
   return src;
 }
-
-function createHeadFooter(cardNumber, typeofCard) {
-  let idtextcolor = "";
-  typeofCard % 2 == 0 ? (idtextcolor = "blackfont") : (idtextcolor = "redfont");
+function viewCardNumber(cardNumber) {
   let number = "";
   if (cardNumber == 1) number = "A";
   else if (cardNumber > 1 && cardNumber < 10) number = cardNumber;
   else if (cardNumber == 10) number = "J";
   else if (cardNumber == 11) number = "Q";
   else number = "K";
+  return number;
+}
+function createHeadFooter(cardNumber, typeofCard) {
+  let idtextcolor = "";
+  typeofCard % 2 == 0 ? (idtextcolor = "blackfont") : (idtextcolor = "redfont");
   return (
     "<div class='row'><div class='col-12'><b id='" +
     idtextcolor +
     "'>" +
-    number +
+    viewCardNumber(cardNumber) +
     "</b></div></div><div class='row'><div class='col-2'><img class='img-fluid w-100 h-auto p-0 m-0' src='" +
     src(typeofCard) +
     "'/></div></div>"
@@ -77,10 +79,21 @@ function createBody(cardNumber, typeofCard) {
       "<div class='row me-0'> <div class ='col-12 d-inline-flex justify-content-center' > <img id='lcard' src='" +
       src(typeofCard) +
       "'/> </div></div>";
+  } else {
+    let idtextcolor = "";
+    typeofCard % 2 == 0
+      ? (idtextcolor = "cardLettersB")
+      : (idtextcolor = "cardLettersR");
+    result =
+      "<div class='row'><div class='col-12'><h1 id='" +
+      idtextcolor +
+      "'>" +
+      viewCardNumber(cardNumber) +
+      "</h1></div></div>";
   }
   return result;
 }
-function cardCreation(cardNumber = 1, typeofCard = 1, obj) {
+function cardCreation(cardNumber = 1, typeofCard = 1) {
   let result =
     "<div class='cardhead'>" +
     createHeadFooter(cardNumber, typeofCard) +
@@ -94,7 +107,7 @@ function cardCreation(cardNumber = 1, typeofCard = 1, obj) {
   return result;
 }
 function randomCards() {
-  return Math.floor(Math.random() * 9) + 1;
+  return Math.floor(Math.random() * 12) + 1;
 }
 function randomTypes() {
   return Math.floor(Math.random() * 4) + 1;
@@ -102,7 +115,7 @@ function randomTypes() {
 
 function newCard() {
   let card = cardCreation(randomCards(), randomTypes());
-  //let card = cardCreation(8, 1);
+  //let card = cardCreation(12, 1);
   postMessage(card);
   setTimeout("newCard()", 700);
 }

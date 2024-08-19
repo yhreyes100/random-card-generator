@@ -53,5 +53,13 @@ input:first-child {
   margin-top: 10px;
 }
 h1 {
-  margin-left: 80px;
+  text-align: center;
+}
+#cardLettersR {
+  font-size: 180px;
+  color: red;
+}
+#cardLettersB {
+  font-size: 180px;
+  color: black;
 }
