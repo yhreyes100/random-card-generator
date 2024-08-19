@@ -25,6 +25,7 @@ document.getElementById("start").onclick = function() {
   }
   console.log("Hello Rigo from the console!");
 };
+
 document.getElementById("stop").onclick = function() {
   if (w != undefined) {
     w.terminate();

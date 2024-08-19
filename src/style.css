@@ -33,18 +33,18 @@ body {
   transform: rotate(180deg);
 }
 .container-fluid {
-  height: 370px;
+  height: 420px;
 }
 .cardhead {
   height: 40px;
 }
 .cardbody {
-  height: 260px;
+  height: 290px;
   margin-top: 30px;
 }
 .cardfooter {
   height: 40px;
-  margin-top: 3px;
+  margin-top: 15px;
 }
 .d-inline-flex {
   padding: 80px;
@@ -62,4 +62,11 @@ h1 {
 #cardLettersB {
   font-size: 180px;
   color: black;
+}
+#moveimgplus {
+  margin-top: 35px;
+  z-index: 10;
+}
+#moveimgminus {
+  margin-top: -35px;
 }
