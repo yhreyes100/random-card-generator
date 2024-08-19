@@ -18,8 +18,6 @@ body {
 #lcard {
   width: 120px;
   height: 120px;
-  margin-top: 70px;
-  margin-bottom: 70px;
 }
 #redfont {
   color: red;
@@ -34,3 +32,24 @@ body {
 .rotate {
   transform: rotate(180deg);
 }
+.container-fluid {
+  height: 370px;
+}
+.cardhead {
+  height: 40px;
+}
+.cardbody {
+  height: 260px;
+  margin-top: 30px;
+}
+.cardfooter {
+  height: 40px;
+  margin-top: 3px;
+}
+.d-inline-flex {
+  padding: 80px;
+}
+/*.col-4 > img {
+  background-size: cover;
+}
+*/

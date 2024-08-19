@@ -54,10 +54,9 @@ function createBody(cardNumber, typeofCard) {
       "9": [true, true, true, true, true, true, true, true, true],
     };
     let pos = 0;
+    result += "<div  class='row'>";
     for (let i = 0; i < 3; i++) {
-      result += "<div  class='row'>";
       for (let j = 0; j < 3; j++) {
-        console.log(pos);
         if (activeposition[cardNumber][pos]) {
           result +=
             "<div class='col-4' style='heigth:40px'> <img class='img-fluid w-100 h-auto p-0 m-0'  src='" +
@@ -69,11 +68,10 @@ function createBody(cardNumber, typeofCard) {
             src(100) +
             "'/> </div>";
         }
-
         pos++;
       }
-      result += "</div";
     }
+    result += "</div>";
   } else if (cardNumber == 1) {
     result =
       "<div class='row me-0'> <div class ='col-12 d-inline-flex justify-content-center' > <img id='lcard' src='" +
@@ -82,7 +80,7 @@ function createBody(cardNumber, typeofCard) {
   }
   return result;
 }
-function cardCreation(cardNumber = 1, typeofCard = 1) {
+function cardCreation(cardNumber = 1, typeofCard = 1, obj) {
   let result =
     "<div class='cardhead'>" +
     createHeadFooter(cardNumber, typeofCard) +
@@ -103,7 +101,9 @@ function randomTypes() {
 }
 
 function newCard() {
-  postMessage(cardCreation(randomCards, randomTypes));
+  let card = cardCreation(randomCards(), randomTypes());
+  //let card = cardCreation(8, 1);
+  postMessage(card);
   setTimeout("newCard()", 700);
 }
 newCard();
