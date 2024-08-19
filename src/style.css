@@ -49,7 +49,9 @@ body {
 .d-inline-flex {
   padding: 80px;
 }
-/*.col-4 > img {
-  background-size: cover;
+input:first-child {
+  margin-top: 10px;
 }
-*/
+h1 {
+  margin-left: 40px;
+}
