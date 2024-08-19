@@ -22,7 +22,7 @@ function src(typeofCard) {
 function viewCardNumber(cardNumber) {
   let number = "";
   if (cardNumber == 1) number = "A";
-  else if (cardNumber > 1 && cardNumber < 10) number = cardNumber;
+  else if (cardNumber > 1 && cardNumber < 11) number = cardNumber;
   else if (cardNumber == 11) number = "J";
   else if (cardNumber == 12) number = "Q";
   else number = "K";
