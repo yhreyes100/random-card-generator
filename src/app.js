@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   document.getElementById("card").innerHTML =
-    " <img src='./src/assets/img/rigo-baby.jpg'/>";
+    " <img src='./src/assets/img/rigo-baby.jpg'/><h1>Welcome</h1>";
 };
 var w;
 document.getElementById("start").onclick = function() {
@@ -30,6 +30,6 @@ document.getElementById("stop").onclick = function() {
     w.terminate();
     w = undefined;
     document.getElementById("card").innerHTML =
-      " <img src='./src/assets/img/rigo-baby.jpg'/>";
+      " <img src='./src/assets/img/rigo-baby.jpg'/><h1>Good bye</h1>";
   }
 };
