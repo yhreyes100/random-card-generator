@@ -15,7 +15,6 @@ document.getElementById("start").addEventListener("click", function() {
     if (typeof w == "undefined") {
       w = new Worker("./src/worker.js");
     }
-    let obj = document.getElementById("card");
     w.onmessage = function(event) {
       var res = event.data;
       document.getElementById("card").innerHTML = res;
